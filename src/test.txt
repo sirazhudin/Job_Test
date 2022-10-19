@@ -1,7 +1,5 @@
-1,The Godfather,5,1972,Drama
-2,Pulp Fiction,4,1994,Crime
-5,The Godfather,5,1972,Drama
-8,The Godfather,5,1972,Drama
-4,Pulp Fiction,4,1994,Crime
-3,pulpit ,9,1111,Super
-7,asjdflj,9,9999,asdjkafdsl
+1,W,2,01011999,01011970,Vasia,Vasilevich,Pupkin2, good worker
+2,M,0,01011991,01011971,Manager,Vasilevich,Pupkin5, good Manager
+3,W,2,01011992,01011972,Ivan,Vasilevich,Pupkin6, good worker
+4,A,2,01011993,01011973,Kolia,Vasilevich,Pupkin7, good Admin
+5,M,0,01011994,01011974,Eugen,Vasilevich,Pupkin0, good Admin
