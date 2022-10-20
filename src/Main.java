@@ -1,4 +1,3 @@
-import javax.crypto.spec.PSource;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Main {
-    ChangeRecord changeRecord;
+
    //main class with menu
     private static BufferedReader br, brIn; // to read input
     //private static BufferedWriter wr; // to write to a file
@@ -75,13 +74,15 @@ public class Main {
             case "5": {
                 System.out.println(" type line num : ");
                 String lineToRm = brIn.readLine();
-                removeLineFromFile(filePath, lineToRm);
+                //RemoveRecord.removeLineFromFile(filePath, lineToRm);
+                DeleteRecord.deleteRecord(filePath,lineToRm);
+                compareIndex = Integer.valueOf("0");readAndCompare();
 
             } break;
             case "6": {
                 System.out.println(" type record : ");
                 String lineToAdd = brIn.readLine();
-                addRecodrd(filePath, lineToAdd);
+                addRecord(filePath, lineToAdd);
             } break;
             case "7": {
                 System.out.println(" Value to change : ");
@@ -98,6 +99,7 @@ public class Main {
         printNavigation();
         command(brIn.readLine());
     }
+
     public static class CustomComparator implements Comparator<String[]> {
         @Override
         public int compare(String[] o1, String[] o2) {
@@ -116,50 +118,8 @@ public class Main {
         System.out.print("7. Change record | ");
         System.out.println();
     }
-    public static void removeLineFromFile(String file, String lineToRemove) throws FileNotFoundException {
-        try {
-            File inFile = new File(file);
-            if (!inFile.isFile()) {
-                System.out.println("Parameter is not an existing file");
-                return;
-            }
-            //Construct the new file that will later be renamed to the original filename.
-            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");
-            BufferedReader brn = new BufferedReader(new FileReader(file));
-            PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
-            String line = null;
-            //Read from the original file and write to the new
-            //unless content matches data to be removed.
-            while ((line = brn.readLine()) != null) {
-                String[] element = line.split(",");
-               if( !element[0].equals(lineToRemove))
-               // if (!line.trim().equals(lineToRemove))
-                {
-                    System.out.println(line);
-                    System.out.println(element[0]);
-                    pw.println(line);
-                    pw.flush();
-                }
-            }
-            pw.close();
-            brn.close();
-            //Delete the original file
-            if (!inFile.delete()) {
-                System.out.println("Could not delete file");
-                return;
-            }
-            //Rename the new file to the filename the original file had.
-            if (!tempFile.renameTo(inFile))
-                System.out.println("Could not rename file");
-        }
-        catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }compareIndex = Integer.valueOf("0");readAndCompare();
-    }
-    private static void addRecodrd (String file, String record) throws IOException {
+
+    private static void addRecord (String file, String record) throws IOException {
         File inFile = new File(file);
         BufferedWriter brw = new BufferedWriter(new FileWriter(inFile,true));
         record =  "\n"+record;

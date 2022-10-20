@@ -2,4 +2,4 @@
 2,M,0,01011991,01011971,Manager,Vasilevich,Pupkin5, good Manager
 3,W,2,01011992,01011972,Ivan,Vasilevich,Pupkin6, good worker
 4,A,2,01011993,01011973,Kolia,Vasilevich,Pupkin7, good Admin
-6,M,0,0000000,1111111,fff,fff,fffa,adssdf
+5,M,0,01011994,01011974,Eugen,Vasilevich,Pupkin0, good Admin
